@@ -10,13 +10,7 @@ require_once 'app/Repositories/PostRepository.php';
 ?>
 
 <?php
-    $post = new PostRepository();
-    if($post->findOneBy(['id'=>8])){
-        echo "yes";
-    }
-    else{
-        echo "n";
-    }
+
 ?>
 
 
