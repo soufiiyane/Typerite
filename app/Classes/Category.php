@@ -6,8 +6,8 @@ class Category
     private readonly int $id;
     private string $name;
 
-    public function __construct(){
-
+    public function __construct()
+    {
     }
 
     public function getId(): int

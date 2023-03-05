@@ -5,6 +5,7 @@ require_once 'app/Contracts/AuthenticatorInterface.php';
 
 class Authenticator implements AuthenticatorInterface
 {
+
     private UserRepository $userRepository;
 
     public function __construct()

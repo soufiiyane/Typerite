@@ -6,6 +6,7 @@ require_once 'app/Classes/User.php';
 
 class UserRepository implements UserRepositoryInterface
 {
+
     private BDConnection $connection;
 
     public function __construct()

@@ -8,7 +8,6 @@ class GalleryPostMedia
 
     public function __construct()
     {
-
     }
 
     public function getImagePath(): string

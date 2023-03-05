@@ -137,7 +137,7 @@ class Embera
      * @param array|string $urls An array with urls or a string with urls.
      * @return array
      */
-    public function getUrlData($urls): array
+    public function getUrlData(array $urls): array
     {
         $return = [];
         foreach ($this->providerCollection->findProviders($urls) as $url => $provider) {

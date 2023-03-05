@@ -1539,7 +1539,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>email</UnderlyingIndexName>
     </key>
     <column id="373" parent="316" name="id">
-      <AutoIncrement>2</AutoIncrement>
+      <AutoIncrement>3</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1549,7 +1549,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="375" parent="316" name="thumbnail">
+    <column id="375" parent="316" name="embedHtml">
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>

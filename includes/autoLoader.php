@@ -1,4 +1,5 @@
 <?php
+
 spl_autoload_register(function($class){
     $fullPath = 'app/Classes/'.$class.'.php';
     if(!file_exists($fullPath)){

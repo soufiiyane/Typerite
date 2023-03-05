@@ -1,6 +1,7 @@
 <?php
 
-class BDConnection {
+class BDConnection
+{
 
     private static ?BDConnection $instance = null;
     private PDO $pdo;
