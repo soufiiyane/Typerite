@@ -3,7 +3,7 @@
 class VideoPost extends Post
 {
 
-    private string $thumbnail;
+    private string $embedHtml;
     private string $url;
 
     public function __construct()
@@ -11,9 +11,9 @@ class VideoPost extends Post
         parent::__construct();
     }
 
-    public function getThumbnail(): string
+    public function getEmbedHtml(): string
     {
-        return $this->thumbnail;
+        return $this->embedHtml;
     }
 
     public function getUrl(): string
@@ -21,9 +21,9 @@ class VideoPost extends Post
         return $this->url;
     }
 
-    public function setThumbnail(string $thumbnail): void
+    public function setEmbedHtml(string $embedHtml): void
     {
-        $this->thumbnail = $thumbnail;
+        $this->embedHtml = $embedHtml;
     }
 
     public function setUrl(string $url): void

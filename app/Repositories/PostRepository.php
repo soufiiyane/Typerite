@@ -1,6 +1,8 @@
 <?php
 
-class PostRepository
+require_once 'app/Contracts/PostInterface.php';
+
+class PostRepository implements PostInterface
 {
 
     private BDConnection $connection;
