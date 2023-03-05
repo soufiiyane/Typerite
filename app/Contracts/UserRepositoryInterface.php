@@ -7,8 +7,8 @@ interface UserRepositoryInterface
 
     public function findOneBy(array $criteria, array $orderBy = null): ?User;
 
-    public function saveUser(User $user): void;
+    public function saveUser(User $user): bool;
 
-    public function deleteUserById(int $id): void ;
+    public function deleteUserById(int $id): bool;
 
 }

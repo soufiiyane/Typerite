@@ -15,6 +15,7 @@ class User
     public function __construct()
     {
         $this->createdAt =  date('Y-m-d h:i:s');
+        $this->imagePath = 'uploades/profile/default.jpg';
     }
 
     public function getId(): int
@@ -79,7 +80,7 @@ class User
 
     public function setPassword(string $password): void
     {
-        $this->password = $password;
+        $this->password = md5($password);
     }
 
     public function setRole(string $role): void
