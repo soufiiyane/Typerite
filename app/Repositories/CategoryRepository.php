@@ -20,30 +20,20 @@ class CategoryRepository implements  CategoryInterface
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function save(string $name): bool
+    public function save(string $name): void
     {
         $query = $this->connection->getConnection()->prepare(/** @lang text */ 'insert into category(name) 
         values(?)');
         $query->bindParam(1,$name);
-        if ($query->execute()) {
-
-            return true;
-        }
-
-        return false;
+        $query->execute();
     }
 
-    public function delete(int $id): bool
+    public function delete(int $id): void
     {
         $query = $this->connection->getConnection()->prepare(/** @lang text */ 'delete from category where id = 
         ?');
         $query->bindParam(1,$id);
-        if ($query->execute()) {
-
-            return true;
-        }
-
-        return false;
+        $query->execute();
     }
 
     public function getCategoryPosts(int $id): array

@@ -60,7 +60,7 @@ class UserRepository implements UserRepositoryInterface
         return null;
     }
 
-    public function saveUser(User $user): bool
+    public function saveUser(User $user): void
     {
         $query = $this->connection->getConnection()->prepare(/** @lang text */'insert into user(name,lastname,
         email,password,role,imagepath) values(?,?,?,?,?,?)');
@@ -76,24 +76,14 @@ class UserRepository implements UserRepositoryInterface
         $query->bindParam(4, $password);
         $query->bindParam(5, $role);
         $query->bindParam(6, $imagepath);
-        if ($query->execute()) {
-
-            return true;
-        }
-
-        return false;
+        $query->execute();
     }
 
-    public function deleteUserById(int $id): bool
+    public function deleteUserById(int $id): void
     {
         $query = $this->connection->getConnection()->prepare(/** @lang text */'delete from user where id = ?');
         $query->bindParam(1,$id);
-        if ($query->execute()) {
-
-            return true;
-        }
-
-        return false;
+        $query->execute();
     }
 
 }

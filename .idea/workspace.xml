@@ -3,14 +3,26 @@
   <component name="ChangeListManager">
     <list default="true" id="7be83788-b5f8-463b-830e-4fa8e48baeb1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/558c6d92-203d-43c0-99e9-81682f79cea8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/558c6d92-203d-43c0-99e9-81682f79cea8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ajaxCall/authentication/loginCall.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajaxCall/authentication/loginCall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Classes/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Classes/Authenticate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Classes/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Classes/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Classes/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Classes/Comment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Classes/GalleryPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Classes/GalleryPost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Classes/GalleryPostMedia.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Classes/GalleryPostMedia.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Classes/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Classes/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Classes/PostType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Classes/PostType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Classes/VideoPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Classes/VideoPost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Contracts/AuthenticatorInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Contracts/AuthenticatorInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Contracts/CategoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Contracts/CategoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Contracts/PostInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Contracts/PostInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Contracts/UserRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Contracts/UserRepositoryInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/CategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/CategoryRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/PostRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/PostRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/PostVideoRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/PostVideoRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/UserService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Security/Authenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Security/Authenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mpratt/embera/src/Embera/Embera.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mpratt/embera/src/Embera/Embera.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +30,6 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="Git.Settings">
@@ -29,12 +40,6 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="PhpWorkspaceProjectConfiguration">
-    <include_path>
-      <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/mpratt/embera" />
-    </include_path>
   </component>
   <component name="ProjectId" id="2MW8z9b2P95qEiUZMkx7HpzYrPx" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -73,8 +78,7 @@
       <workItem from="1677877847698" duration="2605000" />
       <workItem from="1677885355886" duration="1305000" />
       <workItem from="1677956102605" duration="254000" />
-      <workItem from="1677958399896" duration="16354000" />
-      <workItem from="1678017253912" duration="8936000" />
+      <workItem from="1677958399896" duration="15529000" />
     </task>
     <servers />
   </component>
