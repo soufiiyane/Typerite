@@ -35,18 +35,24 @@ class UserService
 
             return false;
         }
-        $this->userRepository->saveUser($user);
+        if ($this->userRepository->saveUser($user)) {
 
-        return true;
+            return true;
+        }
+
+        return false;
     }
 
     public function deleteUserById(int $id): bool
     {
         $user = $this->userRepository->findOneBy(['id'=>$id]);
         if (!is_null($user)) {
-            $this->userRepository->deleteUserById($id);
+            if ($this->userRepository->deleteUserById($id)) {
 
-            return true;
+                return true;
+            }
+
+            return false;
         }
 
         return false;
