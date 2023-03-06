@@ -99,7 +99,7 @@ class UserRepository implements UserRepositoryInterface
             $phpmailer->isHTML(true);
             $phpmailer->Subject = 'Account Verification';
             $phpmailer->Body = file_get_contents('includes/emailTemplate.html');
-            $url = "http://localhost/projects/Typerite/app/Security/Verify.php?token=$token";
+            $url = "http://localhost/projects/Typerite/Verify.php?token=$token";
             $phpmailer->Body = str_replace(
                 array('[Link]'),
                 array($url),
