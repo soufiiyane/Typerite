@@ -10,12 +10,17 @@ class User
     private string $password;
     private string $role;
     private string $imagePath;
-    private string $createdAt ;
+    private string $createdAt;
+    private bool   $isVerified;
+    private string $token;
 
     public function __construct()
     {
         $this->createdAt =  date('Y-m-d h:i:s');
         $this->imagePath = 'uploades/profile/default.jpg';
+        $this->role = 'user';
+        $this->isVerified = false;
+        $this->token = '';
     }
 
     public function getId(): int
@@ -58,6 +63,16 @@ class User
         return $this->createdAt;
     }
 
+    public function getIsVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function getToken(): string
+    {
+        return $this->token;
+    }
+
     public function setId(int $id): void
     {
         $this->id = $id;
@@ -96,6 +111,16 @@ class User
     public function setCreatedAt(string $createdAt): void
     {
         $this->createdAt = $createdAt;
+    }
+
+    public function setIsVerified(bool $isVerified): void
+    {
+        $this->isVerified = $isVerified;
+    }
+
+    public function setToken(string $token): void
+    {
+        $this->token = $token;
     }
 
 }

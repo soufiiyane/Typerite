@@ -1,5 +1,8 @@
 <?php
 
+Use PHPMailer\PHPMailer\PHPMailer;
+Use PHPMailer\PHPMailer\Exception;
+require_once 'vendor/autoload.php';
 require_once 'app/Contracts/UserRepositoryInterface.php';
 require_once 'app/Classes/BDConnection.php';
 require_once 'app/Classes/User.php';
@@ -60,28 +63,84 @@ class UserRepository implements UserRepositoryInterface
         return null;
     }
 
+    // try catch handler (to-do)
     public function saveUser(User $user): bool
     {
-        $query = $this->connection->getConnection()->prepare(/** @lang text */'insert into user(name,lastname,
-        email,password,role,imagepath) values(?,?,?,?,?,?)');
+        $query = $this->connection->getConnection()->prepare(/** @lang text */'insert into user(name, lastname,
+        email, password, role, imagepath, token) values(?, ?, ?, ?, ?, ?, ?)');
         $name = $user->getName();
         $lastName = $user->getLastName();
         $email = $user->getEmail();
         $password = $user->getPassword();
         $role = $user->getRole();
         $imagepath = $user->getImagePath();
+        $token = bin2hex( random_bytes(32));
         $query->bindParam(1, $name);
         $query->bindParam(2, $lastName);
         $query->bindParam(3, $email);
         $query->bindParam(4, $password);
         $query->bindParam(5, $role);
         $query->bindParam(6, $imagepath);
+        $query->bindParam(7, $token);
         if ($query->execute()) {
+            $phpmailer = new PHPMailer(true);
 
-            return true;
+            // MY SMTP CONFIGURATION IN MAILTRAP
+            $phpmailer->isSMTP();
+            $phpmailer->Host = 'sandbox.smtp.mailtrap.io';
+            $phpmailer->SMTPAuth = true;
+            $phpmailer->Port = 2525;
+            $phpmailer->Username = 'fbde8731088316';
+            $phpmailer->Password = 'b99499c110d04f';
+            $phpmailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+
+            $phpmailer->setFrom('typerite@gmail.com','Typerite');
+            $phpmailer->addAddress($user->getEmail(),$user->getName().' '.$user->getLastName());
+            $phpmailer->isHTML(true);
+            $phpmailer->Subject = 'Account Verification';
+            $phpmailer->Body = file_get_contents('includes/emailTemplate.html');
+            $url = "http://localhost/projects/Typerite/app/Security/Verify.php?token=$token";
+            $phpmailer->Body = str_replace(
+                array('[Link]'),
+                array($url),
+                $phpmailer->Body
+            );
+            if ($phpmailer->send()) {
+
+                return true;
+            }
+            echo 'Error email sending' . $phpmailer->ErrorInfo;
+
+            return false;
         }
 
         return false;
+    }
+
+    // UNFINISHED TO DO
+    public function verifyEmail(string $token): bool
+    {
+        $query = $this->connection->getConnection()->prepare(/** @lang text */'select * from user where 
+        token = ?');
+        $query->bindParam(1,$token);
+        $query->execute();
+        $user = $query->fetchObject();
+        if (!$user) {
+            // Token not found or user already verified
+
+            return false;
+        }
+        // Update the user's record to mark them as verified
+        $query = $this->connection->getConnection()->prepare(/** @lang text */'update user set is_verified =
+        ?,token = ?, id = ?');
+        $verified = true;
+        $token = '';
+        $query->bindParam(1, $verified);
+        $query->bindParam(2,$token);
+        $query->bindParam(3,$user->id);
+        $query->execute();
+
+        return true;
     }
 
     public function deleteUserById(int $id): bool
