@@ -15,17 +15,21 @@ class PostRepository implements PostInterface
     public function savePost(Post $post): bool
     {
         $query = $this->db->prepare(/** @lang text */ 'insert post(headline,
-         content, category_id, post_type_id, user_id) values(?,?,?,?,?)');
+         content, category_id, post_type_id, user_id, discr, createdat) values(?,?,?,?,?,?,?)');
         $headline = $post->getHeadline();
         $content = $post->getContent();
         $category = $post->getCategory();
         $post_id = $post->getPostType();
         $user = $post->getAuthor();
+        $discrimination = $post->getDiscr();
+        $createdAt = $post->getCreatedAt();
         $query->bindParam(1,$headline);
         $query->bindParam(2,$content);
         $query->bindParam(3,$category);
         $query->bindParam(4,$post_id);
         $query->bindParam(5,$user);
+        $query->bindParam(6,$discrimination);
+        $query->bindParam(7,$createdAt);
         if ($query->execute()) {
             $post->setId($this->db->lastInsertId());
             return true;

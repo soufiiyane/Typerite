@@ -11,6 +11,7 @@ class VideoPost extends Post
     public function __construct()
     {
         parent::__construct();
+        $this->setDiscr('video');
     }
 
     public function getEmbedHtml(): string

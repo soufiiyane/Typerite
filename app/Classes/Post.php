@@ -14,9 +14,9 @@ class Post
 
     public function __construct()
     {
-        $createdat = new DateTime('Y-m-d h:i:s');
-        $createdat = $createdat->format("M d, Y");
-        $this->createdAt = strtoupper($createdat);
+        $datetime = new DateTime();
+        $datetime =  $datetime->format('M d, Y');
+        $this->createdAt = strtoupper($datetime);
     }
 
     public function getId(): int
@@ -47,6 +47,11 @@ class Post
     public function getAuthor(): int
     {
         return $this->author;
+    }
+
+    public function getDiscr(): string
+    {
+        return $this->discr;
     }
 
     public function getCreatedAt(): string
@@ -82,6 +87,11 @@ class Post
     public function setAuthor(int $author): void
     {
         $this->author = $author;
+    }
+
+    public function setDiscr(string $discr): void
+    {
+        $this->discr = $discr;
     }
 
     public function setCreatedAt(string $createdAt): void

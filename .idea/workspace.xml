@@ -2,23 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7be83788-b5f8-463b-830e-4fa8e48baeb1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Typerite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Typerite.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/558c6d92-203d-43c0-99e9-81682f79cea8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/558c6d92-203d-43c0-99e9-81682f79cea8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Verify.php" beforeDir="false" afterPath="$PROJECT_DIR$/Verify.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Classes/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Classes/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Classes/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Classes/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Classes/VideoPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Classes/VideoPost.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/CategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/CategoryRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/PostRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/PostRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/PostVideoRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/PostVideoRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/autoLoader.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/emailTemplate.html" beforeDir="false" afterPath="$PROJECT_DIR$/includes/emailTemplate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/includes/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,10 +66,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
     "last_opened_file_path": "/home/soufiyane/Desktop/Projects/Typerite/uploads",
     "nodejs_package_manager_path": "npm",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -119,7 +111,8 @@
       <workItem from="1678088725606" duration="201000" />
       <workItem from="1678090830232" duration="1549000" />
       <workItem from="1678095901581" duration="7077000" />
-      <workItem from="1678129335532" duration="17320000" />
+      <workItem from="1678129335532" duration="18163000" />
+      <workItem from="1678187822625" duration="11968000" />
     </task>
     <servers />
   </component>
