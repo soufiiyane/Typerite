@@ -1,7 +1,7 @@
 <?php
 require_once 'app/Classes/BDConnection.php';
 
-    if (isset($_GET['token'])) {
+      if (isset($_GET['token'])) {
         extract($_GET);
         $connection = BDConnection::getInstance();
         $query = $connection->getConnection()->prepare(/** @lang text */'select * from user where 

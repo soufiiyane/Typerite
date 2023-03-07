@@ -6,23 +6,23 @@ use Embera\Embera;
 class PostVideoRepository
 {
 
-    private BDConnection $connection;
+    private PDO $db;
     private PostRepository $postRepository;
 
     public function __construct()
     {
-        $this->connection = BDConnection::getInstance();
+        $this->db = BDConnection::getInstance()->getConnection();
         $this->postRepository = new PostRepository();
     }
 
-    private function getEmbedHtml(string $url): string|bool
+    private function getEmbedHtml(string $url): array|bool
     {
         $embera = new Embera();
         $data = $embera->getUrlData([$url]);
         if (!empty($data)) {
             if ($data[$url]['type'] === 'video' || $data[$url]['type'] === 'rich') {
 
-                return $data[$url]['html'];
+                return $data[$url];
             }
 
             return false;
@@ -34,18 +34,19 @@ class PostVideoRepository
 
     public function saveVideoPost(VideoPost $videoPost): bool
     {
-
         if ($this->getEmbedHtml($videoPost->getUrl())) {
             if ( $this->postRepository->savePost($videoPost)) {
-                $videoPost->setEmbedHtml($this->getEmbedHtml($videoPost->getUrl()));
-                $htmlContent = $videoPost->getEmbedHtml();
                 $url = $videoPost->getUrl();
-                $postId = $this->connection->getConnection()->lastInsertId();
-                $query = $this->connection->getConnection()->prepare(/** @lang text */'insert into video_post(
-                post_id,embedHtml,url) values(?,?,?)');
+                $videoData = $this->getEmbedHtml($url);
+                $videoPost->setEmbedHtml($videoData['html']);
+                $htmlContent = $videoPost->getEmbedHtml();
+                $postId = $videoPost->getId();
+                $query = $this->db->prepare(/** @lang text */'insert into video_post(
+                post_id,embedHtml,thumbnail,url) values(?,?,?,?)');
                 $query->bindParam(1,$postId);
                 $query->bindParam(2,$htmlContent);
-                $query->bindParam(3,$url);
+                $query->bindParam(3,$videoData['thumbnail_url']);
+                $query->bindParam(4,$url);
                 if ($query->execute()) {
 
                     return true ;

@@ -5,16 +5,16 @@ require_once 'app/Contracts/CategoryInterface.php';
 class CategoryRepository implements  CategoryInterface
 {
 
-    private BDConnection $connection;
+    private PDO $db;
 
     public function __construct()
     {
-        $this->connection = BDConnection::getInstance();
+        $this->db = BDConnection::getInstance()->getConnection();
     }
 
     public function getAll(): array
     {
-        $query = $this->connection->getConnection()->prepare(/** @lang text */ 'select * from category');
+        $query = $this->db->prepare(/** @lang text */ 'select * from category');
         $query->execute();
 
         return $query->fetchAll(PDO::FETCH_ASSOC);
@@ -22,7 +22,7 @@ class CategoryRepository implements  CategoryInterface
 
     public function save(string $name): bool
     {
-        $query = $this->connection->getConnection()->prepare(/** @lang text */ 'insert into category(name) 
+        $query = $this->db->prepare(/** @lang text */ 'insert into category(name) 
         values(?)');
         $query->bindParam(1,$name);
         if ($query->execute()) {
@@ -35,7 +35,7 @@ class CategoryRepository implements  CategoryInterface
 
     public function delete(int $id): bool
     {
-        $query = $this->connection->getConnection()->prepare(/** @lang text */ 'delete from category where id = 
+        $query = $this->db->prepare(/** @lang text */ 'delete from category where id = 
         ?');
         $query->bindParam(1,$id);
         if ($query->execute()) {
@@ -48,10 +48,8 @@ class CategoryRepository implements  CategoryInterface
 
     public function getCategoryPosts(int $id): array
     {
-        $query = $this->connection->getConnection()->prepare(/** @lang text */ 'select  * from post p left join 
-         audio_post ap on p.id = ap.post_id left join video_post vp on p.id = vp.post_id left join 
-         gallery_post gp on p.id = gp.post_id left join gallery_post_media gpm on gp.id = gpm.gallery_post_id 
-         where p.category_id = ?');
+        $query = $this->db->prepare(/** @lang text */ 'select  * from post p inner join video_post vp 
+        on p.id = vp.post_id where p.category_id = ?');
         $query->bindParam(1,$id);
         $query->execute();
 

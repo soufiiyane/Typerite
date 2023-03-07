@@ -8,14 +8,14 @@
 
     <title>Typerite</title>
 
-    <link rel="stylesheet" href="includes/template/css/base.css">
-    <link rel="stylesheet" href="includes/template/css/vendor.css">
-    <link rel="stylesheet" href="includes/template/css/main.css">
+    <link rel="stylesheet" href="includes/css/base.css">
+    <link rel="stylesheet" href="includes/css/vendor.css">
+    <link rel="stylesheet" href="includes/css/main.css">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="includes/template/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="includes/template/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="includes/template/favicon-16x16.png">
-    <link rel="manifest" href="includes/template/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
 
 </head>
 <body>
@@ -23,8 +23,8 @@
 
 <div class="header__top">
     <div class="header__logo">
-        <a class="site-logo" href="index.html">
-            <img src="includes/template/images/logo.svg" draggable="false" alt="Logo">
+        <a class="site-logo" href="#">
+            <img src="uploads/typeriteImages/logo.svg" draggable="false" alt="Logo">
         </a>
     </div>
 
@@ -38,42 +38,42 @@
             <input type="submit" class="header__search-submit" value="Search">
         </form>
 
-        <a href="#0" title="Close Search" class="header__search-close">Close</a>
+        <a href="#" title="Close Search" class="header__search-close">Close</a>
 
     </div>  <!-- end header__search -->
 
     <!-- toggles -->
-    <a href="#0" class="header__search-trigger"></a>
-    <a href="#0" class="header__menu-toggle"><span>Menu</span></a>
+    <a href="#" class="header__search-trigger"></a>
+    <a href="#" class="header__menu-toggle"><span>Menu</span></a>
 
 </div> <!-- end header__top -->
 
 <nav class="header__nav-wrap">
 
     <ul class="header__nav">
-        <li class="current"><a href="index.html" title="">Home</a></li>
+        <li class="current"><a href="#" title="">Home</a></li>
         <li class="has-children">
-            <a href="#0" title="">Categories</a>
+            <a href="#" title="">Categories</a>
             <ul class="sub-menu">
-            <li><a href="category.html">Lifestyle</a></li>
-            <li><a href="category.html">Health</a></li>
-            <li><a href="category.html">Family</a></li>
-            <li><a href="category.html">Management</a></li>
-            <li><a href="category.html">Travel</a></li>
-            <li><a href="category.html">Work</a></li>
+            <li><a href="#">Lifestyle</a></li>
+            <li><a href="#">Health</a></li>
+            <li><a href="#">Family</a></li>
+            <li><a href="#">Management</a></li>
+            <li><a href="#">Travel</a></li>
+            <li><a href="#">Work</a></li>
             </ul>
         </li>
         <li class="has-children">
-            <a href="#0" title="">Blog Posts</a>
+            <a href="#" title="">Blog Posts</a>
             <ul class="sub-menu">
-            <li><a href="single-video.html">Video Post</a></li>
-            <li><a href="single-audio.html">Audio Post</a></li>
-            <li><a href="single-gallery.html">Gallery Post</a></li>
-            <li><a href="single-standard.html">Standard Post</a></li>
+            <li><a href="#">Video Post</a></li>
+            <li><a href="#">Audio Post</a></li>
+            <li><a href="#">Gallery Post</a></li>
+            <li><a href="#">Standard Post</a></li>
             </ul>
         </li>
-        <li><a href="page-about.html" title="">About</a></li>
-        <li><a href="page-contact.html" title="">Contact</a></li>
+        <li><a href="#" title="">About</a></li>
+        <li><a href="#" title="">Contact</a></li>
     </ul> <!-- end header__nav -->
 
     <ul class="header__social">
@@ -83,17 +83,17 @@
             </a>
         </li>
         <li class="ss-twitter">
-            <a href="#0">
+            <a href="#">
                 <span class="screen-reader-text">Twitter</span>
             </a>
         </li>
         <li class="ss-dribbble">
-            <a href="#0">
+            <a href="#">
                 <span class="screen-reader-text">Dribbble</span>
             </a>
         </li>
         <li class="ss-pinterest">
-            <a href="#0">
+            <a href="#">
                 <span class="screen-reader-text">Behance</span>
             </a>
         </li>

@@ -16,8 +16,10 @@ class User
 
     public function __construct()
     {
-        $this->createdAt =  date('Y-m-d h:i:s');
-        $this->imagePath = 'uploades/profile/default.jpg';
+        $createdat = new DateTime('Y-m-d h:i:s');
+        $createdat = $createdat->format("M d, Y");
+        $this->createdAt = strtoupper($createdat);
+        $this->imagePath = 'uploads/profile/default.jpg';
         $this->role = 'user';
         $this->isVerified = false;
         $this->token = '';

@@ -5,16 +5,16 @@ require_once 'app/Contracts/PostInterface.php';
 class PostRepository implements PostInterface
 {
 
-    private BDConnection $connection;
+    private PDO $db;
 
     public function __construct()
     {
-        $this->connection = BDConnection::getInstance();
+        $this->db = BDConnection::getInstance()->getConnection();
     }
 
     public function savePost(Post $post): bool
     {
-        $query = $this->connection->getConnection()->prepare(/** @lang text */ 'insert post(headline,
+        $query = $this->db->prepare(/** @lang text */ 'insert post(headline,
          content, category_id, post_type_id, user_id) values(?,?,?,?,?)');
         $headline = $post->getHeadline();
         $content = $post->getContent();
@@ -27,7 +27,7 @@ class PostRepository implements PostInterface
         $query->bindParam(4,$post_id);
         $query->bindParam(5,$user);
         if ($query->execute()) {
-
+            $post->setId($this->db->lastInsertId());
             return true;
         }
 
@@ -36,7 +36,7 @@ class PostRepository implements PostInterface
 
     public function deletePost(int $id): bool
     {
-        $query = $this->connection->getConnection()->prepare(/** @lang text */ 'delete from post where id = ?');
+        $query = $this->db->prepare(/** @lang text */ 'delete from post where id = ?');
         $query->bindParam(1,$id);
         if ($query->execute()) {
 
@@ -63,7 +63,7 @@ class PostRepository implements PostInterface
             }
             $orderByClause = rtrim($orderByClause, ", ");
         }
-        $query = $this->connection->getConnection()->prepare(/** @lang text */"select * from post where 
+        $query = $this->db->prepare(/** @lang text */"select * from post where 
         $whereClause $orderByClause limit 1");
         $query->execute($values);
         if ($query->rowCount()>0) {
@@ -85,7 +85,7 @@ class PostRepository implements PostInterface
 
     public function getAllPosts(): array
     {
-        $query = $this->connection->getConnection()->prepare(/** @lang text */ 'select * from post');
+        $query = $this->db->prepare(/** @lang text */ 'select * from post');
         $query->execute();
 
         return $query->fetchAll(PDO::FETCH_ASSOC);

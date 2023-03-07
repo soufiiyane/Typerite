@@ -15,8 +15,8 @@
         </footer>
     </div> <!-- end s-wrap -->
 
-    <script src="includes/template/js/jquery-3.2.1.min.js"></script>
-    <script src="includes/template/js/plugins.js"></script>
-    <script src="includes/template/js/main.js"></script>
+    <script src="includes/js/jquery-3.2.1.min.js"></script>
+    <script src="includes/js/plugins.js"></script>
+    <script src="includes/js/main.js"></script>
 </body>
 </html>

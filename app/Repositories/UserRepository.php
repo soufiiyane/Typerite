@@ -10,16 +10,16 @@ require_once 'app/Classes/User.php';
 class UserRepository implements UserRepositoryInterface
 {
 
-    private BDConnection $connection;
+    private PDO $db;
 
     public function __construct()
     {
-        $this->connection = BDConnection::getInstance();
+        $this->db = BDConnection::getInstance()->getConnection();
     }
 
     public function getAllUsers(): array
     {
-        $query = $this->connection->getConnection()->prepare(/** @lang text */ 'select * from user');
+        $query = $this->db->prepare(/** @lang text */ 'select * from user');
         $query->execute();
 
         return $query->fetchAll(PDO::FETCH_ASSOC);
@@ -42,7 +42,7 @@ class UserRepository implements UserRepositoryInterface
             }
             $orderByClause = rtrim($orderByClause, ", ");
         }
-        $query = $this->connection->getConnection()->prepare(/** @lang text */"select * from user where 
+        $query = $this->db->prepare(/** @lang text */"select * from user where 
         $whereClause $orderByClause limit 1");
         $query->execute($values);
         if ($query->rowCount()>0) {
@@ -66,7 +66,7 @@ class UserRepository implements UserRepositoryInterface
     // try catch handler (to-do)
     public function saveUser(User $user): bool
     {
-        $query = $this->connection->getConnection()->prepare(/** @lang text */'insert into user(name, lastname,
+        $query = $this->db->prepare(/** @lang text */'insert into user(name, lastname,
         email, password, role, imagepath, token) values(?, ?, ?, ?, ?, ?, ?)');
         $name = $user->getName();
         $lastName = $user->getLastName();
@@ -120,7 +120,7 @@ class UserRepository implements UserRepositoryInterface
     // UNFINISHED TO DO
     public function verifyEmail(string $token): bool
     {
-        $query = $this->connection->getConnection()->prepare(/** @lang text */'select * from user where 
+        $query = $this->db->prepare(/** @lang text */'select * from user where 
         token = ?');
         $query->bindParam(1,$token);
         $query->execute();
@@ -131,7 +131,7 @@ class UserRepository implements UserRepositoryInterface
             return false;
         }
         // Update the user's record to mark them as verified
-        $query = $this->connection->getConnection()->prepare(/** @lang text */'update user set is_verified =
+        $query = $this->db->prepare(/** @lang text */'update user set is_verified =
         ?,token = ?, id = ?');
         $verified = true;
         $token = '';
@@ -145,7 +145,7 @@ class UserRepository implements UserRepositoryInterface
 
     public function deleteUserById(int $id): bool
     {
-        $query = $this->connection->getConnection()->prepare(/** @lang text */'delete from user where id = ?');
+        $query = $this->db->prepare(/** @lang text */'delete from user where id = ?');
         $query->bindParam(1,$id);
         if ($query->execute()) {
 

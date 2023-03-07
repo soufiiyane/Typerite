@@ -9,11 +9,14 @@ class Post
     private int $category;
     private int $postType;
     private int $author;
+    private string $discr;
     private string $createdAt;
 
     public function __construct()
     {
-        $this->createdAt =  date('Y-m-d h:i:s');
+        $createdat = new DateTime('Y-m-d h:i:s');
+        $createdat = $createdat->format("M d, Y");
+        $this->createdAt = strtoupper($createdat);
     }
 
     public function getId(): int
