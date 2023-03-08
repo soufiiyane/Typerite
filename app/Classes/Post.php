@@ -17,6 +17,7 @@ class Post
         $datetime = new DateTime();
         $datetime =  $datetime->format('M d, Y');
         $this->createdAt = strtoupper($datetime);
+        $this->discr = '';
     }
 
     public function getId(): int

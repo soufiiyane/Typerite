@@ -71,16 +71,34 @@ class PostVideoRepository
         return false;
     }
 
-    // Unfinished
-    public function findOneBy(array $criteria, array $orderBy = null): ?VideoPost
+    public function findById(int $id): ?VideoPost
     {
-        $post = $this->postRepository->findOneBy($criteria, $orderBy);
+        $post = $this->postRepository->findById($id);
         if ($post) {
+            $query = $this->db->prepare(/** @lang text */ 'select * from video_post where post_id = ?');
+            $query->bindParam(1,$post->getId());
+            if ($query->execute()) {
+                $query = $query->fetchObject();
+                $videoPost = new VideoPost();
+                $videoPost->setHeadline($post->getHeadline());
+                $videoPost->setContent($post->getContent());
+                $videoPost->setCategory($post->getCategory());
+                $videoPost->setPostType($post->getCategory());
+                $videoPost->setAuthor($post->getAuthor());
+                $videoPost->setDiscr($post->getDiscr());
+                $videoPost->setCreatedAt($post->getCreatedAt());
+                $videoPost->setId($query->id);
+                $videoPost->setUrl($query->url);
+                $videoPost->setEmbedHtml($query->embedHtml);
+                $videoPost->setThumbnail($query->thumbnail);
 
-            // TO DO
-            return true;
+                return $videoPost;
+            }
+
+            return null;
         }
-        return false;
+
+        return null;
     }
 
 }

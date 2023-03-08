@@ -78,12 +78,38 @@ $posts= $category->getCategoryPosts(1);
                         </article>
                         ';
                     }
+                    elseif ($data["discr"]==="audio"){
+                        echo '
+                        <article class="masonry__brick entry format-audio animate-this">
+                            <div class="entry__thumb">
+                                <a href="#" class="entry__thumb-link">
+                                    <img src="'.$data["audioThumbnail"].'"  srcset="" alt="">
+                                </a>
+                            </div>
+                            <div class="entry__text">
+                                <div class="entry__header">
+                                    <h2 class="entry__title"><a href="#">'.$data["postHeadline"].'</a></h2>
+                                    <div class="entry__meta">
+                                        <span class="entry__meta-date">
+                                            <a href="#">'.$data["createdAt"].'</a>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="entry__excerpt">
+                                    <p>
+                                         '.substr($data["postContent"],0,150).'
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                        ';
+                    }
                 }
             ?>
             
         </div>
     </div>
-            <?php
+<?php
 require_once 'includes/footer.php'; ?>
 
 

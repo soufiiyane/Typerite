@@ -5,12 +5,13 @@ class AudioPost extends Post
 
     private string $url;
     private string $embedHtml;
-
+    private string $thumbnail;
     public function __construct()
     {
         parent::__construct();
         $this->embedHtml = '';
         $this->setDiscr('audio');
+        $this->thumbnail = '';
     }
 
     public function getUrl(): string
@@ -23,6 +24,11 @@ class AudioPost extends Post
         return $this->embedHtml;
     }
 
+    public function getThumbnail(): string
+    {
+        return $this->thumbnail;
+    }
+
     public function setUrl(string $url): void
     {
         $this->url = $url;
@@ -31,5 +37,10 @@ class AudioPost extends Post
     public function setEmbedHtml(string $embedHtml): void
     {
         $this->embedHtml = $embedHtml;
+    }
+
+    public function setThumbnail(string $thumbnail): void
+    {
+        $this->thumbnail = $thumbnail;
     }
 }

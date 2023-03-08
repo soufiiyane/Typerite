@@ -50,26 +50,11 @@ class PostRepository implements PostInterface
         return false ;
     }
 
-    public function findOneBy(array $criteria, array $orderBy = null): ?Post
+    public function findById(int $id): ?Post
     {
-        $whereClause = "";
-        $values = [];
-        foreach ($criteria as $column => $value) {
-            $whereClause .= "$column = ? AND ";
-            $values[] = $value;
-        }
-        $whereClause = rtrim($whereClause, "AND ");
-        $orderByClause = "";
-        if ($orderBy !== null) {
-            $orderByClause = "ORDER BY ";
-            foreach ($orderBy as $column => $direction) {
-                $orderByClause .= "$column $direction, ";
-            }
-            $orderByClause = rtrim($orderByClause, ", ");
-        }
-        $query = $this->db->prepare(/** @lang text */"select * from post where 
-        $whereClause $orderByClause limit 1");
-        $query->execute($values);
+        $query = $this->db->prepare(/** @lang text */'select * from post where id = ?');
+        $query->bindParam(1,$id);
+        $query->execute();
         if ($query->rowCount()>0) {
             $query = $query->fetchObject();
             $post = new Post();
