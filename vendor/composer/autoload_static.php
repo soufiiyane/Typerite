@@ -7,9 +7,17 @@ namespace Composer\Autoload;
 class ComposerStaticInitcc489fd759460e39b638e86c70d28432
 {
     public static $prefixLengthsPsr4 = array (
+        'v' => 
+        array (
+            'voku\\' => 5,
+        ),
         'P' => 
         array (
             'PHPMailer\\PHPMailer\\' => 20,
+        ),
+        'M' => 
+        array (
+            'MediaEmbed\\' => 11,
         ),
         'E' => 
         array (
@@ -18,13 +26,32 @@ class ComposerStaticInitcc489fd759460e39b638e86c70d28432
     );
 
     public static $prefixDirsPsr4 = array (
+        'voku\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/voku/stop-words/src/voku',
+            1 => __DIR__ . '/..' . '/voku/portable-ascii/src/voku',
+        ),
         'PHPMailer\\PHPMailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
+        'MediaEmbed\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dereuromark/media-embed/src',
+        ),
         'Embera\\' => 
         array (
             0 => __DIR__ . '/..' . '/mpratt/embera/src/Embera',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'U' => 
+        array (
+            'URLify' => 
+            array (
+                0 => __DIR__ . '/..' . '/jbroadway/urlify',
+            ),
         ),
     );
 
@@ -37,6 +64,7 @@ class ComposerStaticInitcc489fd759460e39b638e86c70d28432
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitcc489fd759460e39b638e86c70d28432::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitcc489fd759460e39b638e86c70d28432::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitcc489fd759460e39b638e86c70d28432::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitcc489fd759460e39b638e86c70d28432::$classMap;
 
         }, null, ClassLoader::class);

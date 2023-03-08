@@ -5,6 +5,10 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpmailer/phpmailer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mpratt/embera" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/voku/portable-ascii" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dereuromark/media-embed" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/jbroadway/urlify" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/voku/stop-words" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

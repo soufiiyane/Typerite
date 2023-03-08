@@ -2,6 +2,7 @@
     "require": {
         "mpratt/embera": "~2.0",
         "phpmailer/phpmailer": "^6.7",
-      "ext-pdo": "*"
+      "ext-pdo": "*",
+        "dereuromark/media-embed": "^0.6.0"
     }
 }
