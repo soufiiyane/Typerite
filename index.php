@@ -36,7 +36,10 @@ require_once 'app/Repositories/PostRepository.php';
                         </div>
                         <div class="entry__text">
                             <div class="entry__header">
-                                <h2 class="entry__title"><a href="#"><?php echo $data["postHeadline"] ?></a></h2>
+                                <h2 class="entry__title">
+                                    <a href="single.php?id=<?php echo $data["postId"] ?>">
+                                    <?php echo $data["postHeadline"] ?></a>
+                                </h2>
                                 <div class="entry__meta">
                                         <span class="entry__meta-date">
                                            By : <a href="#"><?php echo $user->getUserName($data["author"]) ?></a>
@@ -48,7 +51,10 @@ require_once 'app/Repositories/PostRepository.php';
                             </div>
                             <div class="entry__excerpt">
                                 <p>
-                                    <?php echo substr($data["postContent"],0,150) ?>
+                                    <?php echo substr($data["postContent"],0,130) ?>
+                                    <span class="entry__meta">
+                                          <a href="single.php?id=<?php echo $data["postId"] ?>">...Read More</a>
+                                    </span>
                                 </p>
                             </div>
                         </div>
@@ -66,7 +72,10 @@ require_once 'app/Repositories/PostRepository.php';
                         </div>
                         <div class="entry__text">
                             <div class="entry__header">
-                                <h2 class="entry__title"><a href="#"><?php echo $data["postHeadline"] ?></a></h2>
+                                <h2 class="entry__title">
+                                    <a href="single.php?id=<?php echo $data["postId"] ?>">
+                                        <?php echo $data["postHeadline"] ?></a>
+                                </h2>
                                 <div class="entry__meta">
                                         <span class="entry__meta-date">
                                            By : <a href="#"><?php echo $user->getUserName($data["author"]) ?></a>
@@ -78,7 +87,10 @@ require_once 'app/Repositories/PostRepository.php';
                             </div>
                             <div class="entry__excerpt">
                                 <p>
-                                    '<?php echo substr($data["postContent"],0,150) ?>
+                                    <?php echo substr($data["postContent"],0,130) ?>
+                                    <span class="entry__meta">
+                                          <a href="single.php?id=<?php echo $data["postId"] ?>">...Read More</a>
+                                    </span>
                                 </p>
                             </div>
                         </div>
@@ -96,7 +108,10 @@ require_once 'app/Repositories/PostRepository.php';
                         </div>
                         <div class="entry__text">
                             <div class="entry__header">
-                                <h2 class="entry__title"><a href="#"><?php echo $data["postHeadline"] ?></a></h2>
+                                <h2 class="entry__title">
+                                    <a href="single.php?id=<?php echo $data["postId"] ?>">
+                                        <?php echo $data["postHeadline"] ?></a>
+                                </h2>
                                 <div class="entry__meta">
                                     <span class="entry__meta-date">
                                         By : <a href="#"><?php echo $user->getUserName($data["author"]) ?></a>
@@ -108,7 +123,10 @@ require_once 'app/Repositories/PostRepository.php';
                             </div>
                             <div class="entry__excerpt">
                                 <p>
-                                    <?php echo substr($data["postContent"],0,150) ?>
+                                    <?php echo substr($data["postContent"],0,120) ?>
+                                    <span class="entry__meta">
+                                          <a href="single.php?id=<?php echo $data["postId"] ?>">...Read More</a>
+                                    </span>
                                 </p>
                             </div>
                         </div>
@@ -117,7 +135,6 @@ require_once 'app/Repositories/PostRepository.php';
                 }
             }
             ?>
-
         </div>
     </div>
     <?php

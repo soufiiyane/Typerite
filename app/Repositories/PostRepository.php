@@ -69,7 +69,7 @@ class PostRepository implements PostInterface
             return $post;
         }
 
-        return null;
+        return false;
     }
 
     public function getAllPosts(): array
