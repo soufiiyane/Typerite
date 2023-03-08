@@ -74,7 +74,14 @@ class PostRepository implements PostInterface
 
     public function getAllPosts(): array
     {
-        $query = $this->db->prepare(/** @lang text */ 'select * from post');
+        $query = $this->db->prepare(/** @lang text */ 'select
+        p.id as postId, p.headline as postHeadline, p.content as postContent, p.category_id as postCategoryId, 
+        p.post_type_id as postTypeId, p.user_id as author, p.discr as discr, p.createdat as createdAt,vp.id as 
+        videoId, vp.post_id as videoPostId, vp.embedHtml as videoEmbedHtml, vp.thumbnail as videoThumbnail,
+        vp.url as videoUrl,gp.id as galleryId, gp.post_id as galleryPostId,ap.id as audioId,
+        ap.post_id as audioPostId, ap.url as audioUrl, ap.embedHtml as audioEmbedHtml, ap.thumbnail as audioThumbnail
+        from post p left join video_post vp on p.id = vp.post_id left join gallery_post gp on p.id = gp.post_id
+        left join audio_post ap on p.id = ap.post_id order by p.id desc');
         $query->execute();
 
         return $query->fetchAll(PDO::FETCH_ASSOC);

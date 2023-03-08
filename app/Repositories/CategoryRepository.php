@@ -55,7 +55,7 @@ class CategoryRepository implements  CategoryInterface
         vp.url as videoUrl,gp.id as galleryId, gp.post_id as galleryPostId,ap.id as audioId,
         ap.post_id as audioPostId, ap.url as audioUrl, ap.embedHtml as audioEmbedHtml, ap.thumbnail as audioThumbnail
         from post p left join video_post vp on p.id = vp.post_id left join gallery_post gp on p.id = gp.post_id
-        left join audio_post ap on p.id = ap.post_id where p.category_id = ?');
+        left join audio_post ap on p.id = ap.post_id where p.category_id = ? order by p.id desc');
         $query->bindParam(1,$id);
         $query->execute();
 
@@ -81,6 +81,15 @@ class CategoryRepository implements  CategoryInterface
         };
 
         return $html;
+    }
+
+    public function findOneById(int $id): object
+    {
+        $query = $this->db->prepare(/** @lang text */'select * from category where id = ?');
+        $query->bindParam(1,$id);
+        $query->execute();
+
+        return $query->fetchObject();
     }
 
 }

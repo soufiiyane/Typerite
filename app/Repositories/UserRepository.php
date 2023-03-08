@@ -155,4 +155,14 @@ class UserRepository implements UserRepositoryInterface
         return false;
     }
 
+    public function getUserName(int $id): string{
+        $query = $this->db->prepare(/** @lang text */'select * from user where id = ?');
+        $query->bindParam(1,$id);
+        $query->execute();
+        $query =  $query->fetchObject();
+        $userName = $query->name.' '.$query->lastname;
+
+        return $userName;
+    }
+
 }

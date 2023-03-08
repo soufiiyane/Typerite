@@ -1,3 +1,12 @@
+<?php
+require_once 'app/Classes/BDConnection.php';
+require_once 'app/Classes/Category.php';
+require_once 'app/Repositories/CategoryRepository.php';
+
+$categoryRepository = new CategoryRepository();
+$categories = $categoryRepository->getAll();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,21 +64,15 @@
         <li class="has-children">
             <a href="#" title="">Categories</a>
             <ul class="sub-menu">
-            <li><a href="#">Lifestyle</a></li>
-            <li><a href="#">Health</a></li>
-            <li><a href="#">Family</a></li>
-            <li><a href="#">Management</a></li>
-            <li><a href="#">Travel</a></li>
-            <li><a href="#">Work</a></li>
-            </ul>
-        </li>
-        <li class="has-children">
-            <a href="#" title="">Blog Posts</a>
-            <ul class="sub-menu">
-            <li><a href="#">Video Post</a></li>
-            <li><a href="#">Audio Post</a></li>
-            <li><a href="#">Gallery Post</a></li>
-            <li><a href="#">Standard Post</a></li>
+                <?php
+                    foreach ($categories as $category){
+                     ?>
+                        <li>
+                            <a href="category.php?id=<?php echo $category["id"]?>"><?php echo $category["name"]?></a>
+                        </li>
+                     <?php
+                    }
+                ?>
             </ul>
         </li>
         <li><a href="#" title="">About</a></li>

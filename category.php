@@ -9,14 +9,20 @@ require_once 'app/Classes/VideoPost.php';
 require_once 'app/Repositories/PostVideoRepository.php';
 require_once 'app/Repositories/PostRepository.php';
 
-    $postRepository = new PostRepository();
-    $posts = $postRepository->getAllPosts();
-    $category = new CategoryRepository();
-    $user = new UserRepository();
+    if (isset($_GET["id"])) {
+        extract($_GET);
+        $category = new CategoryRepository();
+        $posts = $category->getCategoryPosts($id);
+        $categoryObject = $category->findOneById($id);
+    }
 
 ?>
 
 <div class="s-content">
+
+    <header class="listing-header">
+        <h1 class="h2">Category: <?php echo $categoryObject->name ?></h1>
+    </header>
 
     <div class="masonry-wrap">
         <div class="masonry">
@@ -38,9 +44,6 @@ require_once 'app/Repositories/PostRepository.php';
                             <div class="entry__header">
                                 <h2 class="entry__title"><a href="#"><?php echo $data["postHeadline"] ?></a></h2>
                                 <div class="entry__meta">
-                                        <span class="entry__meta-date">
-                                           By : <a href="#"><?php echo $user->getUserName($data["author"]) ?></a>
-                                        </span>
                                         <span class="entry__meta-date">
                                             <a href="#"><?php echo $data["createdAt"] ?></a>
                                         </span>
@@ -69,9 +72,6 @@ require_once 'app/Repositories/PostRepository.php';
                                 <h2 class="entry__title"><a href="#"><?php echo $data["postHeadline"] ?></a></h2>
                                 <div class="entry__meta">
                                         <span class="entry__meta-date">
-                                           By : <a href="#"><?php echo $user->getUserName($data["author"]) ?></a>
-                                        </span>
-                                        <span class="entry__meta-date">
                                             <a href="#"><?php echo $data["createdAt"] ?></a>
                                         </span>
                                 </div>
@@ -98,12 +98,9 @@ require_once 'app/Repositories/PostRepository.php';
                             <div class="entry__header">
                                 <h2 class="entry__title"><a href="#"><?php echo $data["postHeadline"] ?></a></h2>
                                 <div class="entry__meta">
-                                    <span class="entry__meta-date">
-                                        By : <a href="#"><?php echo $user->getUserName($data["author"]) ?></a>
-                                    </span>
-                                    <span class="entry__meta-date">
-                                        <a href="#"><?php echo $data["createdAt"] ?></a>
-                                    </span>
+                                        <span class="entry__meta-date">
+                                            <a href="#"><?php echo $data["createdAt"] ?></a>
+                                        </span>
                                 </div>
                             </div>
                             <div class="entry__excerpt">
@@ -120,7 +117,7 @@ require_once 'app/Repositories/PostRepository.php';
 
         </div>
     </div>
-    <?php
+<?php
     require_once 'includes/footer.php'; ?>
 
 
